@@ -1,0 +1,46 @@
+@import "tailwindcss";
+ 
+@theme inline {
+  --animate-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position:
+        50% 50%,
+        50% 50%;
+    }
+    to {
+      background-position:
+        350% 50%,
+        350% 50%;
+    }
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.stars {
+  background: radial-gradient(circle, transparent 20%, black 90%),
+              linear-gradient(to right, #1a1a1a 2px, transparent 2px),
+              linear-gradient(to bottom, #1a1a1a 2px, transparent 2px);
+  background-size: 50px 50px, 50px 50px, 50px 50px;
+  animation: twinkling 8s linear infinite;
+}
+
+@keyframes twinkling {
+  from {
+    background-position: 0 0, 0 0, 0 0;
+  }
+  to {
+    background-position: 100px 100px, 50px 0, 0 50px;
+  }
+}
