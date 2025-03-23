@@ -10,9 +10,18 @@
   },
   "dependencies": {
     "@tailwindcss/cli": "^4.0.15",
+    "clsx": "^2.1.1",
+    "motion": "^12.5.0",
     "next": "15.2.3",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^3.0.2"
+  },
+  "overrides": {
+    "motion": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0"
+    }
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
