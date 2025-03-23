@@ -30,8 +30,6 @@ export function ExpandableCardDemo() {
 
   return (
     <div className="relative py-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black" />
-      
       <div className="relative z-10 max-w-7xl mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

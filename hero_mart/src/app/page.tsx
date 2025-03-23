@@ -117,8 +117,6 @@ export default function Page() {
 
       {/* Experience Section */}
       <div className="relative py-20 px-4">
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black" />
-        
         <div className="relative z-10 max-w-6xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
