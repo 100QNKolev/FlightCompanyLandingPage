@@ -9,7 +9,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
+import { IconLayoutNavbarCollapse, IconHome, IconTerminal2 } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
@@ -20,55 +20,37 @@ import {
 import Link from "next/link";
 import { useRef } from "react";
 
-export const FloatingDock = () => {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Show dock after scrolling 100px
-      const shouldShow = window.scrollY > 100;
-      setIsVisible(shouldShow);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
+export const FloatingDock = ({
+  items,
+  className,
+  mobileClassName
+}: {
+  items: { title: string; icon: React.ReactNode; href: string }[];
+  className?: string;
+  mobileClassName?: string;
+}) => {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ 
-        opacity: isVisible ? 1 : 0,
-        y: isVisible ? 0 : 20
-      }}
-      transition={{
-        duration: 0.2,
-        ease: "easeInOut"
-      }}
-      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
-    >
-      <div className="bg-black/80 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full">
-        <div className="flex items-center gap-6">
-          <button className="text-white/80 hover:text-white transition-colors">
-            Home
-          </button>
-          <button className="text-white/80 hover:text-white transition-colors">
-            Products
-          </button>
-          <button className="text-white/80 hover:text-white transition-colors">
-            About
-          </button>
-          <button className="text-white/80 hover:text-white transition-colors">
-            Contact
-          </button>
-        </div>
-      </div>
-    </motion.div>
+    <>
+      <FloatingDockMobile items={items} className={cn("fixed bottom-4 right-4 z-50", mobileClassName)} />
+      <FloatingDockDesktop items={items} className={cn("fixed bottom-8 left-1/2 -translate-x-1/2 z-50", className)} />
+    </>
   );
 };
 
 export function FloatingDockDemo() {
-  return <FloatingDock />;
+  const demoItems = [
+    {
+      title: "Home",
+      icon: <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#"
+    },
+    {
+      title: "About",
+      icon: <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />,
+      href: "#"
+    }
+  ];
+  return <FloatingDock items={demoItems} />;
 }
 
 const FloatingDockMobile = ({
@@ -85,7 +67,7 @@ const FloatingDockMobile = ({
         {open && (
           <motion.div
             layoutId="nav"
-            className="absolute bottom-full mb-2 inset-x-0 flex flex-col gap-2"
+            className="absolute bottom-full mb-2 right-0 flex flex-col gap-2"
           >
             {items.map((item, idx) => (
               <motion.div
