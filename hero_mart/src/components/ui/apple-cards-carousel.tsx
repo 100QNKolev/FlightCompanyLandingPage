@@ -12,7 +12,6 @@ import {
 import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import Image, { ImageProps } from "next/image";
-import { useOutsideClick } from "@/hooks/use-outside-click";
 
 interface CarouselProps {
   items: JSX.Element[];
@@ -153,11 +152,9 @@ export const Carousel = ({ items, initialScroll = 0 }: CarouselProps) => {
 
 export const Card = ({
   card,
-  index,
   layout = false,
 }: {
   card: Card;
-  index: number;
   layout?: boolean;
 }) => {
   return (
