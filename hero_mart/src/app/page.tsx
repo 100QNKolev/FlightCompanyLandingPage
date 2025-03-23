@@ -71,7 +71,7 @@ export default function Page() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-xl md:text-2xl text-center max-w-2xl mb-8 text-gray-200"
           >
-            Experience the world's most exclusive destinations from a perspective few ever will
+            Experience the world&apos;s most exclusive destinations from a perspective few ever will
           </motion.p>
 
           <motion.div

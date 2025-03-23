@@ -11,7 +11,7 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="text-lg font-semibold">Luxury Flight Tours</h3>
             <p className="text-neutral-400 text-sm">
-              Experience the world's most exclusive destinations with unparalleled luxury and comfort.
+              Experience the world&apos;s most exclusive destinations with unparalleled luxury and comfort.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-neutral-400 hover:text-white transition-colors">
