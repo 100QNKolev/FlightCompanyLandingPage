@@ -6,7 +6,7 @@ import { AppleCardsCarouselDemo } from "@/components/apple-cards-carousel-demo";
 import { FloatingDockDemo } from "@/components/floating-dock-demo";
 import { CardHoverEffectDemo } from "@/components/card-hover-effect-demo";
 import { GlobeDemo } from "@/components/globe-demo";
-
+import { ExpandableCardDemo } from "@/components/expandable-card-demo";
 export default function Page() {
   return (
     <main className="min-h-screen">
@@ -20,6 +20,7 @@ export default function Page() {
         </div>
       </div>
       <AppleCardsCarouselDemo />
+      <ExpandableCardDemo />
     </main>
   );
 }
