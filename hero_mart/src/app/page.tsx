@@ -19,11 +19,11 @@ export default function Page() {
         Explore our global flight destinations and scenic aerial tours. Our interactive globe
         showcases the breathtaking routes we offer across continents.
       </p>
-      <div className="flex flex-row min-h-screen bg-black m-8 rounded-3xl overflow-hidden">
-        <div className="w-1/2">
+      <div className="flex flex-row items-center justify-center min-h-[70vh] bg-black mt-4 mb-8 rounded-3xl overflow-hidden">
+        <div className="w-1/2 flex items-center justify-center -mt-16">
           <GlobeDemo />
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 flex items-center justify-center">
           <CardHoverEffectDemo />
         </div>
       </div>
