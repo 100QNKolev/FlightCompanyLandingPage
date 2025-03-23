@@ -91,7 +91,7 @@ export function WorldMapDemo() {
               className="flex flex-col items-center gap-8"
             >
               <p className="text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
-                For over two decades, we've been setting the standard in luxury air travel, earning the trust of discerning travelers worldwide.
+                For over two decades, we&apos;ve been setting the standard in luxury air travel, earning the trust of discerning travelers worldwide.
               </p>
               
               {/* Stats Grid */}

@@ -60,8 +60,6 @@ interface WorldProps {
   data: ArcData[];
 }
 
-const numbersOfRings: number[] = [0];
-
 export function Globe({ globeConfig, data }: WorldProps) {
   const globeRef = useRef<ThreeGlobe | null>(null);
   const groupRef = useRef<Group>(null);
@@ -88,7 +86,7 @@ export function Globe({ globeConfig, data }: WorldProps) {
   useEffect(() => {
     if (!globeRef.current && groupRef.current) {
       globeRef.current = new ThreeGlobe();
-      (groupRef.current as any).add(globeRef.current);
+      (groupRef.current as Group).add(globeRef.current);
       setIsInitialized(true);
     }
   }, []);

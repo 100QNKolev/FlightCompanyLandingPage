@@ -4,7 +4,7 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 import { motion } from "framer-motion";
 
 export function AppleCardsCarouselDemo() {
-  const cards = data.map((card, index) => (
+  const cards = data.map((card) => (
     <Card key={card.src} card={card} />
   ));
 
@@ -56,7 +56,7 @@ export function AppleCardsCarouselDemo() {
                       Skytrax 5-Star Rating
                     </h4>
                     <p className="text-neutral-300">
-                      Consistently rated among the world's top airlines for luxury and service quality.
+                      Consistently rated among the world&apos;s top airlines for luxury and service quality.
                     </p>
                   </motion.div>
                   
