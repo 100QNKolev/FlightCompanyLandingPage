@@ -1,6 +1,7 @@
 "use client";
 import { WorldMap } from "@/components/ui/world-map";
-import { useState } from "react";
+import { useState, useRef } from "react";
+import { motion, useInView } from "framer-motion";
 
 interface Destination {
   lat: number;
@@ -52,6 +53,8 @@ const FLIGHT_DESTINATIONS = {
 
 export function WorldMapDemo() {
   const [selectedDestination, setSelectedDestination] = useState<Destination | null>(null);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   const getDestinationInfo = (lat: number, lng: number) => {
     const key = `${lat},${lng}` as const;
@@ -63,8 +66,13 @@ export function WorldMapDemo() {
   };
 
   return (
-    <div className="py-20 dark:bg-black bg-white w-full relative">
-      <div className="max-w-7xl mx-auto text-center mb-16">
+    <div className="py-20 dark:bg-black bg-white w-full relative" ref={ref}>
+      <motion.div 
+        className="max-w-7xl mx-auto text-center mb-16"
+        initial={{ opacity: 0, y: 50 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+      >
         <h1 className="font-bold text-3xl md:text-5xl dark:text-white text-black mb-6">
           Explore Our Flight Destinations
         </h1>
@@ -72,51 +80,63 @@ export function WorldMapDemo() {
           Discover amazing destinations worldwide with our premium flight services.
           Direct flights available from major international airports.
         </p>
-      </div>
+      </motion.div>
 
-      <WorldMap
-        dots={[
-          {
-            start: {
-              lat: 64.2008,
-              lng: -149.4937,
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.95 }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+      >
+        <WorldMap
+          dots={[
+            {
+              start: {
+                lat: 64.2008,
+                lng: -149.4937,
+              },
+              end: {
+                lat: 34.0522,
+                lng: -118.2437,
+              },
             },
-            end: {
-              lat: 34.0522,
-              lng: -118.2437,
+            {
+              start: { lat: 64.2008, lng: -149.4937 },
+              end: { lat: -15.7975, lng: -47.8919 },
             },
-          },
-          {
-            start: { lat: 64.2008, lng: -149.4937 },
-            end: { lat: -15.7975, lng: -47.8919 },
-          },
-          {
-            start: { lat: -15.7975, lng: -47.8919 },
-            end: { lat: 38.7223, lng: -9.1393 },
-          },
-          {
-            start: { lat: 51.5074, lng: -0.1278 },
-            end: { lat: 28.6139, lng: 77.209 },
-          },
-          {
-            start: { lat: 28.6139, lng: 77.209 },
-            end: { lat: 43.1332, lng: 131.9113 },
-          },
-          {
-            start: { lat: 28.6139, lng: 77.209 },
-            end: { lat: -1.2921, lng: 36.8219 },
-          }
-        ]}
-        onDestinationClick={setSelectedDestination}
-      />
-      
+            {
+              start: { lat: -15.7975, lng: -47.8919 },
+              end: { lat: 38.7223, lng: -9.1393 },
+            },
+            {
+              start: { lat: 51.5074, lng: -0.1278 },
+              end: { lat: 28.6139, lng: 77.209 },
+            },
+            {
+              start: { lat: 28.6139, lng: 77.209 },
+              end: { lat: 43.1332, lng: 131.9113 },
+            },
+            {
+              start: { lat: 28.6139, lng: 77.209 },
+              end: { lat: -1.2921, lng: 36.8219 },
+            }
+          ]}
+          onDestinationClick={setSelectedDestination}
+        />
+      </motion.div>
+
       {selectedDestination && (
-        <div 
+        <motion.div 
           className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           onClick={() => setSelectedDestination(null)}
         >
-          <div 
+          <motion.div 
             className="bg-white dark:bg-gray-800 p-8 rounded-lg shadow-xl max-w-sm w-full mx-4 relative"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.9, opacity: 0 }}
             onClick={e => e.stopPropagation()}
           >
             <button
@@ -128,39 +148,37 @@ export function WorldMapDemo() {
               </svg>
             </button>
 
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold mb-2 dark:text-white pr-8">
-                {getDestinationInfo(selectedDestination.lat, selectedDestination.lng).name}
-              </h3>
-              
-              <div className="space-y-2">
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 dark:text-gray-300">Price from:</span>
-                  <span className="text-xl font-bold text-blue-500">
-                    {getDestinationInfo(selectedDestination.lat, selectedDestination.lng).price}
-                  </span>
-                </div>
-                
-                <div className="flex justify-between items-center">
-                  <span className="text-gray-600 dark:text-gray-300">Flight duration:</span>
-                  <span className="text-gray-900 dark:text-gray-100">
-                    {getDestinationInfo(selectedDestination.lat, selectedDestination.lng).duration}
-                  </span>
-                </div>
+            <h3 className="text-2xl font-bold mb-2 dark:text-white pr-8">
+              {getDestinationInfo(selectedDestination.lat, selectedDestination.lng).name}
+            </h3>
+            
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600 dark:text-gray-300">Price from:</span>
+                <span className="text-xl font-bold text-blue-500">
+                  {getDestinationInfo(selectedDestination.lat, selectedDestination.lng).price}
+                </span>
               </div>
-
-              <button
-                onClick={() => {
-                  alert("Flight booking functionality coming soon!");
-                  setSelectedDestination(null);
-                }}
-                className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors mt-4"
-              >
-                Book Flight
-              </button>
+              
+              <div className="flex justify-between items-center">
+                <span className="text-gray-600 dark:text-gray-300">Flight duration:</span>
+                <span className="text-gray-900 dark:text-gray-100">
+                  {getDestinationInfo(selectedDestination.lat, selectedDestination.lng).duration}
+                </span>
+              </div>
             </div>
-          </div>
-        </div>
+
+            <button
+              onClick={() => {
+                alert("Flight booking functionality coming soon!");
+                setSelectedDestination(null);
+              }}
+              className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-4 rounded-lg transition-colors mt-4"
+            >
+              Book Flight
+            </button>
+          </motion.div>
+        </motion.div>
       )}
     </div>
   );
