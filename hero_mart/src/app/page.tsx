@@ -9,6 +9,7 @@ import { GlobeDemo } from "@/components/globe-demo";
 import { ExpandableCardDemo } from "@/components/expandable-card-demo";
 import { WorldMapDemo } from "@/components/world-map-demo";
 import { Footer } from "@/components/footer";
+
 export default function Page() {
   return (
     <main className="min-h-screen bg-black">
