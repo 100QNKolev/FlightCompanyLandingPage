@@ -27,6 +27,30 @@ export default function Page() {
         {/* Animated Stars/Particles Effect */}
         <div className="absolute inset-0 bg-[radial-gradient(white_1px,transparent_1px)] bg-[size:50px_50px] opacity-30" />
 
+        {/* Plane Silhouette */}
+        <motion.div
+          className="absolute w-[500px] h-[500px] opacity-15"
+          initial={{ x: "-20%", y: "80%" }}
+          animate={{ 
+            x: "60%",
+            y: "-20%",
+            rotate: 0
+          }}
+          transition={{
+            duration: 20,
+            repeat: Infinity,
+            ease: "linear"
+          }}
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="white"
+            className="w-full h-full transform rotate-[60deg]"
+          >
+            <path d="M22,16v-2l-8.5-5V3.5C13.5,2.67,12.83,2,12,2s-1.5,0.67-1.5,1.5V9L2,14v2l8.5-2.5V19L8,20.5V22l4-1l4,1v-1.5L13.5,19 v-5.5L22,16z"/>
+          </svg>
+        </motion.div>
+
         {/* Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black" />
 
