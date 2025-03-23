@@ -236,12 +236,12 @@ const cards = [
     ctaLink: "/reviews/tokyo-first-class",
     content: (
       <p>
-        "The attention to detail was impeccable. From the moment I stepped into the
+        &quot;The attention to detail was impeccable. From the moment I stepped into the
         first-class lounge to the final touchdown in Tokyo, every moment was pure luxury.
         The lie-flat seats were incredibly comfortable, and the in-flight chef prepared
-        some of the best meals I've ever had. The flight attendants remembered my name
-        and preferences throughout the entire journey. This wasn't just a flight; it was
-        the beginning of my vacation. Worth every penny!"
+        some of the best meals I&apos;ve ever had. The flight attendants remembered my name
+        and preferences throughout the entire journey. This wasn&apos;t just a flight; it was
+        the beginning of my vacation. Worth every penny!&quot;
       </p>
     ),
   },
@@ -276,13 +276,13 @@ const cards = [
     ctaLink: "/reviews/dubai-maldives",
     content: (
       <p>
-        "This was our honeymoon trip, and it couldn't have been more perfect. The
+        &quot;This was our honeymoon trip, and it couldn&apos;t have been more perfect. The
         business class flights were fantastic, but the real luxury began with our stay
-        at the Burj Al Arab. The contrast between Dubai's urban luxury and the
-        Maldives' natural paradise was incredible. The overwater villa was a dream,
+        at the Burj Al Arab. The contrast between Dubai&apos;s urban luxury and the
+        Maldives&apos; natural paradise was incredible. The overwater villa was a dream,
         and the private seaplane transfer offered breathtaking views. The staff at
-        both properties went above and beyond to make our stay special. We're already
-        planning our anniversary trip!"
+        both properties went above and beyond to make our stay special. We&apos;re already
+        planning our anniversary trip!&quot;
       </p>
     ),
   },
