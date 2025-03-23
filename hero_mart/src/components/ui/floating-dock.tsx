@@ -4,35 +4,72 @@
  * Mobile navbar is better positioned at bottom right.
  **/
 
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { IconLayoutNavbarCollapse } from "@tabler/icons-react";
 import {
   AnimatePresence,
   MotionValue,
-  motion,
   useMotionValue,
   useSpring,
   useTransform,
 } from "motion/react";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
-export const FloatingDock = ({
-  items,
-  desktopClassName,
-  mobileClassName,
-}: {
-  items: { title: string; icon: React.ReactNode; href: string }[];
-  desktopClassName?: string;
-  mobileClassName?: string;
-}) => {
+export const FloatingDock = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Show dock after scrolling 100px
+      const shouldShow = window.scrollY > 100;
+      setIsVisible(shouldShow);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <>
-      <FloatingDockDesktop items={items} className={desktopClassName} />
-      <FloatingDockMobile items={items} className={mobileClassName} />
-    </>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ 
+        opacity: isVisible ? 1 : 0,
+        y: isVisible ? 0 : 20
+      }}
+      transition={{
+        duration: 0.2,
+        ease: "easeInOut"
+      }}
+      className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50"
+    >
+      <div className="bg-black/80 backdrop-blur-md border border-white/10 px-8 py-4 rounded-full">
+        <div className="flex items-center gap-6">
+          <button className="text-white/80 hover:text-white transition-colors">
+            Home
+          </button>
+          <button className="text-white/80 hover:text-white transition-colors">
+            Products
+          </button>
+          <button className="text-white/80 hover:text-white transition-colors">
+            About
+          </button>
+          <button className="text-white/80 hover:text-white transition-colors">
+            Contact
+          </button>
+        </div>
+      </div>
+    </motion.div>
   );
 };
+
+export function FloatingDockDemo() {
+  return <FloatingDock />;
+}
 
 const FloatingDockMobile = ({
   items,
