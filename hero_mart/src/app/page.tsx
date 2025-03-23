@@ -55,7 +55,7 @@ export default function Page() {
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black" />
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
+        <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4 pb-30">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
