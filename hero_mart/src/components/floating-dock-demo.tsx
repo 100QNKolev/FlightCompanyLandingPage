@@ -1,77 +1,74 @@
+"use client";
 import React from "react";
 import { FloatingDock } from "@/components/ui/floating-dock";
 import {
-  IconBrandGithub,
-  IconBrandX,
-  IconExchange,
-  IconHome,
-  IconNewSection,
-  IconTerminal2,
+  IconPlane,
+  IconMapPin,
+  IconCalendarEvent,
+  IconPhone,
+  IconUser,
+  IconHeadset,
+  IconCreditCard
 } from "@tabler/icons-react";
-import Image from "next/image";
 
 export function FloatingDockDemo() {
   const links = [
     {
-      title: "Home",
+      title: "Book Flight",
       icon: (
-        <IconHome className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconPlane className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
-    },
-
-    {
-      title: "Products",
-      icon: (
-        <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      href: "#book",
     },
     {
-      title: "Components",
+      title: "Destinations",
       icon: (
-        <IconNewSection className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconMapPin className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#destinations",
     },
     {
-      title: "Aceternity UI",
+      title: "Schedule",
       icon: (
-        <Image
-          src="https://assets.aceternity.com/logo-dark.png"
-          width={20}
-          height={20}
-          alt="Aceternity Logo"
-        />
+        <IconCalendarEvent className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#schedule",
     },
     {
-      title: "Changelog",
+      title: "Contact",
       icon: (
-        <IconExchange className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconPhone className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
-    },
-
-    {
-      title: "Twitter",
-      icon: (
-        <IconBrandX className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "#",
+      href: "#contact",
     },
     {
-      title: "GitHub",
+      title: "Account",
       icon: (
-        <IconBrandGithub className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+        <IconUser className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "#",
+      href: "#account",
+    },
+    {
+      title: "Support",
+      icon: (
+        <IconHeadset className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#support",
+    },
+    {
+      title: "Payment",
+      icon: (
+        <IconCreditCard className="h-full w-full text-neutral-500 dark:text-neutral-300" />
+      ),
+      href: "#payment",
     },
   ];
+  
   return (
     <FloatingDock
       items={links}
+      className="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800"
+      mobileClassName="bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200 dark:border-neutral-800"
     />
   );
 }
