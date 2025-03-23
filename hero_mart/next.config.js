@@ -8,8 +8,14 @@ const nextConfig = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.aceternity.com',
+        port: '',
+        pathname: '/**',
+      },
     ],
   },
 };
 
-module.exports = nextConfig; 
+module.exports = nextConfig;
