@@ -9,10 +9,16 @@ import { GlobeDemo } from "@/components/globe-demo";
 
 export default function Page() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <GlobeDemo />
+    <main className="min-h-screen">
       <FloatingDockDemo />
-      <CardHoverEffectDemo />
+      <div className="flex flex-row min-h-screen bg-black m-8 rounded-3xl overflow-hidden">
+        <div className="w-1/2">
+          <GlobeDemo />
+        </div>
+        <div className="w-1/2">
+          <CardHoverEffectDemo />
+        </div>
+      </div>
       <AppleCardsCarouselDemo />
     </main>
   );
