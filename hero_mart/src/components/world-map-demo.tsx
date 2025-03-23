@@ -68,35 +68,77 @@ export function WorldMapDemo() {
   return (
     <div className="py-20 dark:bg-black bg-white w-full relative" ref={ref}>
       {/* Trust Metrics Section */}
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="mb-20 pb-16 border-b border-neutral-200 dark:border-neutral-800">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h3 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-white mb-4">
+      <div className="relative py-20 px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-6"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white">
               Trusted by Millions of Luxury Travelers
-            </h3>
-            <p className="text-neutral-600 dark:text-neutral-300">
-              For over two decades, we've been setting the standard in luxury air travel, earning the trust of discerning travelers worldwide.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div className="space-y-2">
-              <h4 className="text-3xl md:text-4xl font-bold text-blue-500">20+</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">Years of Excellence</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-3xl md:text-4xl font-bold text-blue-500">500K+</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">Happy Passengers</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-3xl md:text-4xl font-bold text-blue-500">180+</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">Global Destinations</p>
-            </div>
-            <div className="space-y-2">
-              <h4 className="text-3xl md:text-4xl font-bold text-blue-500">98%</h4>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">Satisfaction Rate</p>
-            </div>
-          </div>
+            </h2>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center gap-8"
+            >
+              <p className="text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
+                For over two decades, we've been setting the standard in luxury air travel, earning the trust of discerning travelers worldwide.
+              </p>
+              
+              {/* Stats Grid */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-12">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">20+</span>
+                  <span className="text-neutral-300">Years of Excellence</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">500K+</span>
+                  <span className="text-neutral-300">Happy Passengers</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">180+</span>
+                  <span className="text-neutral-300">Global Destinations</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.6 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">98%</span>
+                  <span className="text-neutral-300">Satisfaction Rate</span>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
 
