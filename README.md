@@ -15,7 +15,7 @@ This is a landing page prototype that showcases:
 ![Homepage Hero Section](./screenshots/hero-section.png)
 *Homepage hero section*
 
-![Upcoming flights section](./screenshots/Globe.png)
+![Upcoming flights section](./screenshots/globe.png)
 *Upcoming flights section with globe*
 
 ![Services section](./screenshots/services-section.png)
