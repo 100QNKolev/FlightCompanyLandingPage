@@ -122,11 +122,15 @@ export function WorldMap({
                   stroke="url(#path-gradient)"
                   strokeWidth="1"
                   initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
+                  animate={{ 
+                    pathLength: [0, 1],
+                    opacity: [0, 1, 1, 0]
+                  }}
                   transition={{
-                    duration: 1.5,
+                    duration: 3,
                     delay: 0.2 * i,
-                    ease: "easeOut"
+                    repeat: Infinity,
+                    repeatDelay: 1
                   }}
                 />
               </g>
