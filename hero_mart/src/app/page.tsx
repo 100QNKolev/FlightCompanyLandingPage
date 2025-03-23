@@ -11,8 +11,7 @@ import { WorldMapDemo } from "@/components/world-map-demo";
 
 export default function Page() {
   return (
-    <main className="min-h-screen">
-      <FloatingDockDemo />
+    <main className="min-h-screen bg-black">
       <div className="flex flex-row min-h-screen bg-black m-8 rounded-3xl overflow-hidden">
         <div className="w-1/2">
           <GlobeDemo />
@@ -24,6 +23,7 @@ export default function Page() {
       <WorldMapDemo />
       <AppleCardsCarouselDemo />
       <ExpandableCardDemo />
+      <FloatingDockDemo />
     </main>
   );
 }
