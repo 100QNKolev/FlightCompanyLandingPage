@@ -31,7 +31,7 @@ export function ExpandableCardDemo() {
   return (
     <div className="max-w-7xl mx-auto px-4 py-20">
       {/* Trust Building Section */}
-      <div className="mb-20">
+      <div className="mb-20 pb-16 border-b border-neutral-200 dark:border-neutral-800">
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h3 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-white mb-4">
             Award-Winning Service Excellence

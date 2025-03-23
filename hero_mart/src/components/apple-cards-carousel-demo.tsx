@@ -12,7 +12,7 @@ export function AppleCardsCarouselDemo() {
     <div className="relative w-full bg-white dark:bg-black py-20">
       <div className="max-w-7xl mx-auto px-4">
         {/* Trust Metrics Section */}
-        <div className="mb-20">
+        <div className="mb-20 pb-16 border-b border-neutral-200 dark:border-neutral-800">
           <div className="text-center max-w-3xl mx-auto mb-12">
             <h3 className="text-2xl md:text-3xl font-semibold text-neutral-800 dark:text-white mb-4">
               Trusted by Millions of Luxury Travelers
