@@ -15,19 +15,17 @@ export default function Page() {
     <main className="min-h-screen bg-black">
       {/* Hero Section */}
       <div className="relative h-screen w-full overflow-hidden">
-        {/* Background Video */}
-        <div className="absolute inset-0 w-full h-full">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="object-cover w-full h-full"
-            style={{ filter: 'brightness(0.6)' }}
-          >
-            <source src="/hero-background.mp4" type="video/mp4" />
-          </video>
-        </div>
+        {/* Animated Gradient Background */}
+        <div 
+          className="absolute inset-0 w-full h-full bg-gradient-to-br from-blue-900 via-black to-purple-900"
+          style={{
+            backgroundSize: '400% 400%',
+            animation: 'gradient 15s ease infinite',
+          }}
+        />
+        
+        {/* Animated Stars/Particles Effect */}
+        <div className="absolute inset-0 bg-[radial-gradient(white_1px,transparent_1px)] bg-[size:50px_50px] opacity-30" />
 
         {/* Overlay Gradient */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black" />
@@ -93,14 +91,72 @@ export default function Page() {
         </div>
       </div>
 
-      {/* Rest of the content */}
-      <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white p-8">
-        Experience the World from Above
-      </h2>
-      <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
-        Explore our global flight destinations and scenic aerial tours. Our interactive globe
-        showcases the breathtaking routes we offer across continents.
-      </p>
+      {/* Experience Section */}
+      <div className="relative py-20 px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black" />
+        
+        <div className="relative z-10 max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="text-center space-y-6"
+          >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white">
+              Experience the World from Above
+            </h2>
+            
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="flex flex-col items-center gap-8"
+            >
+              <p className="text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed">
+                Explore our global flight destinations and scenic aerial tours. Our interactive globe
+                showcases the breathtaking routes we offer across continents.
+              </p>
+              
+              {/* Stats/Features */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold text-white">50+</span>
+                  <span className="text-neutral-300">Luxury Destinations</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold text-white">24/7</span>
+                  <span className="text-neutral-300">Concierge Service</span>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                  viewport={{ once: true }}
+                  className="flex flex-col items-center space-y-2"
+                >
+                  <span className="text-4xl font-bold text-white">100%</span>
+                  <span className="text-neutral-300">Private Flights</span>
+                </motion.div>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+      </div>
+
       <div className="flex flex-row items-center justify-center min-h-[70vh] bg-black mt-4 mb-8 rounded-3xl overflow-hidden">
         <div className="w-1/2 flex items-center justify-center -mt-16">
           <GlobeDemo />
