@@ -128,7 +128,7 @@ export default function Page() {
                   viewport={{ once: true }}
                   className="flex flex-col items-center space-y-2"
                 >
-                  <span className="text-4xl font-bold text-white">50+</span>
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">50+</span>
                   <span className="text-neutral-300">Luxury Destinations</span>
                 </motion.div>
                 <motion.div
@@ -138,7 +138,7 @@ export default function Page() {
                   viewport={{ once: true }}
                   className="flex flex-col items-center space-y-2"
                 >
-                  <span className="text-4xl font-bold text-white">24/7</span>
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">24/7</span>
                   <span className="text-neutral-300">Concierge Service</span>
                 </motion.div>
                 <motion.div
@@ -148,7 +148,7 @@ export default function Page() {
                   viewport={{ once: true }}
                   className="flex flex-col items-center space-y-2"
                 >
-                  <span className="text-4xl font-bold text-white">100%</span>
+                  <span className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">100%</span>
                   <span className="text-neutral-300">Private Flights</span>
                 </motion.div>
               </div>
