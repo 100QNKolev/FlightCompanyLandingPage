@@ -68,7 +68,7 @@ export function WorldMapDemo() {
   return (
     <div className="py-20 dark:bg-black bg-white w-full relative" ref={ref}>
       {/* Trust Metrics Section */}
-      <div className="relative py-20 pb-50 px-4">
+      <div className="relative py-20 pb-40 px-4">
         <div className="relative z-10 max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
