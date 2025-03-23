@@ -29,27 +29,43 @@ export function ExpandableCardDemo() {
   useOutsideClick(ref, () => setActive(null));
 
   return (
-    <div className="max-w-7xl mx-auto px-4 py-20">
+    <div className="relative py-20">
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-blue-950/20 to-black" />
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+          className="text-center space-y-6 mb-16"
+        >
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white pb-4">
+            Featured Travel Packages & Reviews
+          </h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed"
+          >
+            Explore our carefully curated selection of luxury travel packages and hear what our distinguished guests have to say about their experiences.
+          </motion.p>
+        </motion.div>
 
-      <h2 className="text-3xl md:text-5xl font-bold text-center mb-12 text-neutral-800 dark:text-white">
-        Featured Travel Packages & Reviews
-      </h2>
-      <p className="text-center text-neutral-600 dark:text-neutral-300 max-w-2xl mx-auto mb-16">
-        Explore our carefully curated selection of luxury travel packages and hear what our distinguished guests have to say about their experiences.
-      </p>
-
-      <div className="grid grid-cols-1 gap-4">
-        <AnimatePresence>
-          {active && typeof active === "object" && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/20 backdrop-blur-sm h-full w-full z-10"
-            />
-          )}
-        </AnimatePresence>
-        <AnimatePresence>
+        <div className="grid grid-cols-1 gap-4">
+          <AnimatePresence>
+            {active && typeof active === "object" && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 bg-black/80 backdrop-blur-sm h-full w-full z-10"
+              />
+            )}
+          </AnimatePresence>
+          
           {active && typeof active === "object" ? (
             <div className="fixed inset-0 grid place-items-center z-[100]">
               <motion.button
@@ -81,7 +97,7 @@ export function ExpandableCardDemo() {
                   />
                 </motion.div>
 
-                <div className="p-6">
+                <div className="p-8">
                   <div className="flex justify-between items-start">
                     <div>
                       <motion.h3
@@ -118,46 +134,50 @@ export function ExpandableCardDemo() {
               </motion.div>
             </div>
           ) : null}
-        </AnimatePresence>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {cards.map((card) => (
-            <motion.div
-              layoutId={`card-${card.title}-${id}`}
-              key={`card-${card.title}-${id}`}
-              onClick={() => setActive(card)}
-              className="p-4 flex flex-col md:flex-row gap-4 bg-white dark:bg-neutral-900 rounded-xl cursor-pointer hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors"
-            >
-              <motion.div layoutId={`image-${card.title}-${id}`} className="relative h-40 md:h-32 md:w-48 rounded-lg overflow-hidden">
-                <Image
-                  src={card.src}
-                  alt={card.title}
-                  fill
-                  className="object-cover"
-                />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {cards.map((card) => (
+              <motion.div
+                layoutId={`card-${card.title}-${id}`}
+                key={`card-${card.title}-${id}`}
+                onClick={() => setActive(card)}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                viewport={{ once: true }}
+                className="p-4 flex flex-col md:flex-row gap-4 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl cursor-pointer hover:bg-white/10 transition-colors"
+              >
+                <motion.div layoutId={`image-${card.title}-${id}`} className="relative h-40 md:h-32 md:w-48 rounded-lg overflow-hidden">
+                  <Image
+                    src={card.src}
+                    alt={card.title}
+                    fill
+                    className="object-cover"
+                  />
+                </motion.div>
+                <div className="flex-1">
+                  <motion.h3
+                    layoutId={`title-${card.title}-${id}`}
+                    className="font-bold text-white"
+                  >
+                    {card.title}
+                  </motion.h3>
+                  <motion.p
+                    layoutId={`description-${card.description}-${id}`}
+                    className="text-sm text-neutral-300 mt-1"
+                  >
+                    {card.description}
+                  </motion.p>
+                  <motion.button
+                    layoutId={`button-${card.title}-${id}`}
+                    className="mt-3 px-4 py-2 text-sm rounded-full font-medium bg-blue-500 text-white hover:bg-blue-600 transition-colors"
+                  >
+                    {card.ctaText}
+                  </motion.button>
+                </div>
               </motion.div>
-              <div className="flex-1">
-                <motion.h3
-                  layoutId={`title-${card.title}-${id}`}
-                  className="font-bold text-neutral-800 dark:text-white"
-                >
-                  {card.title}
-                </motion.h3>
-                <motion.p
-                  layoutId={`description-${card.description}-${id}`}
-                  className="text-sm text-neutral-600 dark:text-neutral-300 mt-1"
-                >
-                  {card.description}
-                </motion.p>
-                <motion.button
-                  layoutId={`button-${card.title}-${id}`}
-                  className="mt-3 px-4 py-2 text-sm rounded-full font-medium bg-blue-500 text-white hover:bg-blue-600 transition-colors"
-                >
-                  {card.ctaText}
-                </motion.button>
-              </div>
-            </motion.div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>

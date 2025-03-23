@@ -24,7 +24,7 @@ export function AppleCardsCarouselDemo() {
               viewport={{ once: true }}
               className="text-center space-y-6"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white pb-4">
                 Award-Winning Service Excellence
               </h2>
               
@@ -109,7 +109,7 @@ export function AppleCardsCarouselDemo() {
         <div className="max-w-7xl mx-auto px-4 mt-20">
           {/* Premium Services Section */}
           <div className="text-center">
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white mb-8">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white mb-8 pb-4">
               Discover Our Premium Services
             </h2>
             <p className="text-lg md:text-xl text-neutral-200 max-w-3xl mx-auto leading-relaxed mb-16">

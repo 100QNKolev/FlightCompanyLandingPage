@@ -79,7 +79,7 @@ export function WorldMapDemo() {
             viewport={{ once: true }}
             className="text-center space-y-6"
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-white via-blue-200 to-white pb-4">
               Trusted by Millions of Luxury Travelers
             </h2>
             
@@ -148,7 +148,7 @@ export function WorldMapDemo() {
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <h1 className="font-bold text-3xl md:text-5xl dark:text-white text-black mb-6">
+        <h1 className="font-bold text-3xl md:text-5xl dark:text-white text-black mb-6 pb-4">
           Explore Our Flight Destinations
         </h1>
         <p className="text-sm md:text-lg text-neutral-500 max-w-2xl mx-auto">
