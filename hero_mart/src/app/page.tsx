@@ -12,6 +12,13 @@ import { WorldMapDemo } from "@/components/world-map-demo";
 export default function Page() {
   return (
     <main className="min-h-screen bg-black">
+      <h2 className="text-center text-xl md:text-4xl font-bold text-black dark:text-white">
+            We sell soap worldwide
+          </h2>
+          <p className="text-center text-base md:text-lg font-normal text-neutral-700 dark:text-neutral-200 max-w-md mt-2 mx-auto">
+            This globe is interactive and customizable. Have fun with it, and
+            don&apos;t forget to share it. :)
+          </p>
       <div className="flex flex-row min-h-screen bg-black m-8 rounded-3xl overflow-hidden">
         <div className="w-1/2">
           <GlobeDemo />
